@@ -13,9 +13,9 @@
         return 
         t.get('card')
         .then(function(card) {
-          const date = new Date(1000*parseInt(card.id.substring(0,8),16));
+          //const date = new Date(1000*parseInt(card.id.substring(0,8),16));
           return [{
-                text: `HEYYY ${date}`,
+                text: `HEYYY`,
                 color: "green",
               }]; 
         });
