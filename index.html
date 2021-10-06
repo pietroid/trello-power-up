@@ -11,9 +11,9 @@
     TrelloPowerUp.initialize({
   'card-badges': function(t, options) {
     return t.card('id')
-    .then(function(id) {
+    .then(function(card) {
       return [{
-        text: `BLA ${JSON.stringify(id)}`
+        text: `BLA ${card.id}`
       }];  
     });
   },
