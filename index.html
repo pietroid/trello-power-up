@@ -32,12 +32,16 @@
         ]
       },
       'card-badges': function (t,options){
-        return [
-          {
-          text: "HEYYY",
-          color: "green",
-          }
-        ]
+        return
+          t.card('id').then(card => {
+            const date = new Date(1000*parseInt(card.id.substring(0,8),16));
+            return [
+              {
+                text: `HEYYY ${date}`,
+                color: "green",
+              }
+            ]
+          })
       }
     })
   </script>
