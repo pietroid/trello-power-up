@@ -30,7 +30,10 @@
 
           const diff = dateDiff(now,lastActivity);
           
-          let finalColor = 'green';
+          let finalColor = 'blue';
+          if(diff.minutes > 30){
+            finalColor = 'green';
+          }
           if(diff.hours > 12){
             finalColor = 'yellow';
           }
