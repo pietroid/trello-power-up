@@ -43,14 +43,15 @@
 
           let finalText;
           if (diff.days >= 1){
-            finalText = `${diff.days} day${diff.days > 1 ? 's' : ''}`
+            finalText = `${diff.days} DAY${diff.days > 1 ? 'S' : ''}`
           } else if (diff.hours >= 1){
-            finalText = `${diff.hours} hour${diff.hours > 1 ? 's' : ''}`
+            finalText = `${diff.hours} Hour${diff.hours > 1 ? 's' : ''}`
           } else if (diff.minutes >= 1){
-            finalText = `${diff.minutes} hour${diff.minutes > 1 ? 's' : ''}`
+            finalText = `${diff.minutes} minute${diff.minutes > 1 ? 's' : ''}`
           }else{
             finalText = 'Now'
           }
+
           return [{
             text: finalText,
             color: finalColor,
