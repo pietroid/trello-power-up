@@ -13,7 +13,7 @@
     return t.card('id')
     .then(function(id) {
       return [{
-        text: `BLA ${id}`
+        text: `BLA ${JSON.stringify(id)}`
       }];  
     });
   },
