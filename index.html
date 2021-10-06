@@ -10,11 +10,10 @@
   <script>
     TrelloPowerUp.initialize({
   'card-badges': function(t, options) {
-    return t.card('id')
+    return t.card('dateLastActivity')
     .then(function(card) {
-      const date = new Date(1000*parseInt(card.id.substring(0,8),16));
       return [{
-        text: `${Object.keys(card)}`
+        text: `${card.dateLastActivity}`
       }];  
     });
   },
