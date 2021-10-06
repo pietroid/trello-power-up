@@ -10,10 +10,10 @@
   <script>
     TrelloPowerUp.initialize({
   'card-badges': function(t, options) {
-    return t.get('card', 'shared', 'estimate')
-    .then(function(card) {
+    return t.get('card', 'shared', 'estimate','id')
+    .then(function(id) {
       return [{
-        text: card.id
+        text: id
       }];  
     });
   },
