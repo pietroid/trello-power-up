@@ -32,10 +32,10 @@
           const now = new Date();
           const lastActivity = card.dateLastActivity;
 
-          const diff = dateDiff(now,lastActivity);
+          //const diff = dateDiff(now,lastActivity);
 
           return [{
-            text: `${diff.days}d ${diff.hours}h ${diff.minutes}m`
+            text: `BLA ${lastActivity}`
           }];  
         });
       },
