@@ -31,7 +31,7 @@
           const diff = dateDiff(now,lastActivity);
 
           return [{
-            text: `BLA ${diff.minutes}`
+            text: `BLA ${now-lastActivity}`
           }];  
         });
       },
