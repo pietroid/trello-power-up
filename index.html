@@ -8,16 +8,39 @@
 <body>
   <script src="https://p.trellocdn.com/power-up.min.js"></script>
   <script>
+    const _MS_PER_MINUTE = 1000 * 60;
+    const _MS_PER_HOUR = _MS_PER_MINUTE * 60;
+    const _MS_PER_DAY = _MS_PER_MINUTE * 24;
+
+    function dateDiff(a, b) {
+      // Discard the time and time-zone information.
+      const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+      const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+      return {
+        minutes: Math.floor((utc1 - utc2) / _MS_PER_MINUTE),
+        hours: Math.floor((utc1 - utc2) / _MS_PER_HOUR),
+        days: Math.floor((utc1 - utc2) / _MS_PER_DAY),
+      }
+    }
+
     TrelloPowerUp.initialize({
-  'card-badges': function(t, options) {
-    return t.card('dateLastActivity')
-    .then(function(card) {
-      return [{
-        text: `${card.dateLastActivity}`
-      }];  
+      'card-badges': function(t, options) {
+        return t.card('dateLastActivity')
+        .then(function(card) {
+
+          const now = new Date();
+          const lastActivity = car.dateLastActivity;
+
+          const diff = dateDiff(now,lastActivity);
+
+          return [{
+            text: `${diff.days}d ${diff.hours}h ${diff.minutes}m`
+          }];  
+        });
+      },
     });
-  },
-});
+
   </script>
 </body>
 </html>
