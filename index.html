@@ -10,17 +10,13 @@
   <script>
     const _MS_PER_MINUTE = 1000 * 60;
     const _MS_PER_HOUR = _MS_PER_MINUTE * 60;
-    const _MS_PER_DAY = _MS_PER_MINUTE * 24;
+    const _MS_PER_DAY = _MS_PER_HOUR * 24;
 
     function dateDiff(a, b) {
-      // Discard the time and time-zone information.
-      const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-      const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
-
       return {
-        minutes: Math.floor((utc1 - utc2) / _MS_PER_MINUTE),
-        hours: Math.floor((utc1 - utc2) / _MS_PER_HOUR),
-        days: Math.floor((utc1 - utc2) / _MS_PER_DAY),
+        minutes: Math.floor((a - b) / _MS_PER_MINUTE),
+        hours: Math.floor((a - b) / _MS_PER_HOUR),
+        days: Math.floor((a - b) / _MS_PER_DAY),
       }
     }
 
