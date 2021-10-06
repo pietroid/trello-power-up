@@ -29,9 +29,31 @@
           const lastActivity = new Date(card.dateLastActivity);
 
           const diff = dateDiff(now,lastActivity);
+          
+          let finalColor = 'green';
+          if(diff.hours > 12){
+            finalColor = 'yellow';
+          }
+          if(diff.days >= 2){
+            finalColor = 'orange'
+          }
+          if(diff.days >= 3){
+            finalColor = 'red'
+          }
 
+          let finalText;
+          if (diff.days >= 1){
+            finalText = `${diff.days} day${diff.days > 1 ? 's' : ''}`
+          } else if (diff.hours >= 1){
+            finalText = `${diff.hours} hour${diff.hours > 1 ? 's' : ''}`
+          } else if (diff.minutes >= 1){
+            finalText = `${diff.minutes} hour${diff.minutes > 1 ? 's' : ''}`
+          }else{
+            finalText = 'Now'
+          }
           return [{
-            text: `BLA ${diff.minutes} ${diff.hours}`
+            text: finalText,
+            color: finalColor,
           }];  
         });
       },
